@@ -1,0 +1,59 @@
+
+
+
+
+
+
+
+ <html>
+    <head>
+        <link rel="stylesheet"
+        href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css" /> 
+    </head>
+ <body>  
+    <div class="bg-img">
+    <form #slogin="ngForm" class="text-center border border-light p-5" action="#!" align="center">
+       
+        <p class="h4 mb-4">Sign in</p>
+    
+       
+		<!-- <input type="email" id="defaultLoginFormEmail" class="form-control mb-4" placeholder="E-mail"> -->
+		<input type="text" name="email1" [(ngModel)]="login.email"   class="form-control" placeholder="Email"
+		required="required" min="" #email="ngModel"/>
+	 <div  *ngIf="(email.touched||email.dirty)&&email.invalid">
+		 <small  class="text-danger" *ngIf="email.errors.required">Can not be left blank</small>
+		 <small  class="text-danger" *ngIf="email.errors.min">It must contain @ symbol</small>
+	 </div>
+    
+       
+		<!-- <input type="password" id="defaultLoginFormPassword" class="form-control mb-4" placeholder="Password"> -->
+		<br>
+		<input type="password" name="pwd1"[(ngModel)]="login.password" placeholder="Password"   class="form-control"
+		required="required" min="" #pwd="ngModel"/>
+	 <div  *ngIf="(pwd.touched||pwd.dirty)&&email.invalid">
+		 <small  class="text-danger" *ngIf="pwd.errors.required">Can not be left blank</small>
+		 <small  class="text-danger" *ngIf="pwd.errors.min">It must contain one uppercase letter</small>
+	 </div>
+    
+        <div class="d-flex justify-content-around">
+            
+            <div>
+               
+                <a href="pwd">Forgot password?</a>
+            </div>
+        </div>
+    
+      
+        <button [disabled]="slogin.form.invalid" class="btn btn-info btn-primary  my-4" type="submit" routerLink="seller" >Login</button>
+       
+       
+        <p>Not a member?
+            <a href="sreg">Register</a>
+        </p>
+
+    
+    </form>
+    </div>
+  
+</body> 
+  </html>
